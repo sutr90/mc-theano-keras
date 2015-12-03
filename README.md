@@ -34,7 +34,7 @@ pip install keras --user --upgrade
 ```
 
 ##Theano configuration
-In your $HOME directory create file .theanorc Put following settings in:
+In your ```$HOME``` directory create file ```.theanorc```. Put following settings in:
 ```
 [global]
 floatX=float32
@@ -70,22 +70,26 @@ It seems that only supported clusters are **doom** and **gram**.
 * On **doom** single epoch of mnist_cnn takes about 35s
 
 ## FAQ:
-Q:	When importing theano it shows error - Cuda available but not used. Driver version not supported.
+Q:  Theano is not using GPU.
 
-A:	Check you have the latest Cuda module - atm 6.5
-	Check that you are on supported node. Only doom and gram clusters work with this setup.
+A:  Check that you have correct setting in ```$HOME/.theanorc```. Be careful the ```$HOME``` directory is node dependent! You have different home on **doom**, on **gram** and so on.
+
+Q:  When importing theano it shows error - Cuda available but not used. Driver version not supported.
+
+A:  Check you have the latest Cuda module - atm 6.5
+    Check that you are on supported node. Only doom and gram clusters work with this setup.
 
 
-Q:	When importing theano it shows error - libcuda_ndarray.so is not available. File not found.
+Q:  When importing theano it shows error - libcuda_ndarray.so is not available. File not found.
 
-A:	Check that your compiledir_format and compiledir parameters are setup correctly. The reported compiledir has to have read & write permissions. The compiledir must not have special chars in it. If you keep default compiledir_format it can has colon (:) in the path which messes up the compiler.
+A:  Check that your compiledir_format and compiledir parameters are setup correctly. The reported compiledir has to have read & write permissions. The compiledir must not have special chars in it. If you keep default compiledir_format it can has colon (:) in the path which messes up the compiler.
 
 
 Q:  When importing keras python outputs lots of warnings about Runtime Api Version being different from Compile Api Version.
 
-A:	Make sure you are using Python 2.7. And that you are **not** using theano module available at Metacentrum. Their module is configured to use Python 2.6.
+A:  Make sure you are using Python 2.7. And that you are **not** using theano module available at Metacentrum. Their module is configured to use Python 2.6.
 
 
-Q:	PBS killed my job.
+Q:  PBS killed my job.
 
-A:	Create new job with more resources. The default 400mb of memory is usually too low.
+A:  Create new job with more resources. The default 400mb of memory is usually too low.
