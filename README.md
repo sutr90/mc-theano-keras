@@ -1,3 +1,5 @@
+![](http://i.imgur.com/2KLqeUs.jpg)
+
 # Keras + Theano on Metacentrum example setup
 
 ##Installation
